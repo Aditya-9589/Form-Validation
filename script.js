@@ -11,6 +11,22 @@ form.addEventListener('submit', (e) => {
     validateInputs();
 })
 
-const validateinputs = () => {
-    
+const validateInputs = () => {
+    const usernameValue = username.value.trim();
+    const emailValue = email.value.trim();
+    const passwordValue = password.value.trim();
+    const cpasswordValue = Cpassword.value.trim();
+
+    if(usernameValue === '' ) {
+        setError(username, 'Username is required');
+    }
+    else {
+        setSuccess(username);
+    }
+}
+
+const setError = (element, message) => {
+    const inputControl = element.parentElement;
+    const errorDisplay = inputControl.querySelector('.error');
+    errorDisplay.innerText = message;
 }
